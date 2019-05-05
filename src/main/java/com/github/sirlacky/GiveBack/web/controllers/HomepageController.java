@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomepageController {
 
     @GetMapping
-    @ResponseBody
     public String mainPage(){
-        return "STRONA TESTOWA";
+        return "landingpage";
     }
 }
