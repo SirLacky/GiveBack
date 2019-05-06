@@ -15,8 +15,7 @@
 <header class="header--main-page">
     <nav class="container container--70">
         <ul class="nav--actions">
-            <li><a href="" class="btn btn--small btn--without-border">Zaloguj</a></li>
-            <li><a href="#" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+            <li><a href="/logout" class="btn btn--small btn--highlighted">Wyloguj</a></li>
         </ul>
 
         <ul>
@@ -36,7 +35,7 @@
             </h1>
 
             <ul class="slogan--buttons">
-                <li><a href="#" class="btn btn--large">Oddaj rzeczy</a></li>
+                <li><a href="/giveform" class="btn btn--large">Oddaj rzeczy</a></li>
                 <li><a href="#" class="btn btn--large">Zorganizuj zbiórkę</a></li>
             </ul>
         </div>
