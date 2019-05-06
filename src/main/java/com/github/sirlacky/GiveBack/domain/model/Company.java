@@ -15,13 +15,13 @@ import java.util.List;
 @AllArgsConstructor
 public class Company {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
-private String name;
-private String adress;
-@OneToMany
-private List<Donation> donations = new ArrayList<>();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String adress;
+    @OneToMany
+    private List<Donation> donations = new ArrayList<>();
 
 }
 

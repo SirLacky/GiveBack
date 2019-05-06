@@ -16,8 +16,8 @@
 <header class="header--main-page">
     <nav class="container container--70">
         <ul class="nav--actions">
-            <li><a href="" class="btn btn--small btn--without-border">Zaloguj</a></li>
-            <li><a href="#" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+            <li><a href="/login" class="btn btn--small btn--without-border">Zaloguj</a></li>
+            <li><a href="/registration" class="btn btn--small btn--highlighted">Załóż konto</a></li>
         </ul>
 
         <ul>
@@ -99,9 +99,9 @@
     <div class="about-us--text">
         <h2>O nas</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero optio esse quisquam illo omnis.</p>
-        <img src="images/signature.svg" class="about-us--text-signature" alt="Signature" />
+        <img src="../../media/images/signature.svg" class="about-us--text-signature" alt="Signature" />
     </div>
-    <div class="about-us--image"><img src="images/about-us.jpg" alt="People in circle" /></div>
+    <div class="about-us--image"><img src="../../media/images/about-us.jpg" alt="People in circle" /></div>
 </section>
 
 <section class="help">
@@ -252,11 +252,11 @@
     <div class="bottom-line">
         <span class="bottom-line--copy">Copyright &copy; 2018</span>
         <div class="bottom-line--icons">
-            <a href="#" class="btn btn--small"><img src="images/icon-facebook.svg"/></a> <a href="#" class="btn btn--small"><img src="images/icon-instagram.svg"/></a>
+            <a href="#" class="btn btn--small"><img src="../../media/images/icon-facebook.svg"/></a> <a href="#" class="btn btn--small"><img src="../../media/images/icon-instagram.svg"/></a>
         </div>
     </div>
 </footer>
 
-<script src="js/app.js"></script>
+<script src="../../media/js/app.js"></script>
 </body>
 </html>

@@ -19,8 +19,8 @@ public class Donation {
     private Long id;
     private String name;
     @ManyToOne
-    private User user;
-    @OneToOne
+    private User users;
+    @ManyToOne
     private Company company;
 
 }

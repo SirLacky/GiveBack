@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,7 +19,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     private String username;
     @Column(nullable = false)
     private String password;
@@ -27,9 +27,10 @@ public class User {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    private Boolean admin = false;
+    @Column(name = "user_role")
+    private String role;
     @OneToMany
-    private List<Donation>donations = new ArrayList<>();
+    private List<Donation> donations = new ArrayList<>();
 
 
     @Override
