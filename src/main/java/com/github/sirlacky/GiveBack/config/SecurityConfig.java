@@ -54,11 +54,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/main")
+                .defaultSuccessUrl("/usermain")
                 .and()
                 .logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/homepage")
+                .logoutSuccessUrl("/landingpage")
                 .and()
                 .csrf()//wylacza potwierdzenie wylogowanie "czy napewno chcesz sie wylogowac"
                 .disable()
