@@ -255,6 +255,6 @@
     </div>
 </footer>
 
-<script src="js/app.js"></script>
+<script src="../../media/js/app.js"></script>
 </body>
 </html>

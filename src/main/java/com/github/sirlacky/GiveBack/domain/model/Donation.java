@@ -21,7 +21,8 @@ public class Donation {
     private String type;
     private Integer numberOfBags;
     private String localizationOfDonation;
-    private String [] donationReciver;
+    private String donationReciver;
+    private String organization;
     private String pickUpStreet;
     private String pickUpCity;
     private String pickUpZIP;

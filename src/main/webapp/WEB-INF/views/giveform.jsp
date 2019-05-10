@@ -96,7 +96,7 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/5</div>
 
-        <form:form modelAttribute="donation" method="post">
+        <form:form id="formularz" method="post" modelAttribute="donation">
             <form:errors path="*"/><br>
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
@@ -104,11 +104,7 @@
 
                 <div class="form-group form-group--checkbox">
                     <label>
-                        <form:radiobutton
-                                path="type"
-                                name="products[]"
-                                value="clothes-to-use"
-                        />
+                        <form:radiobutton path="type" name="products[]" value="clothes-to-use"/>
                         <span class="checkbox"></span>
                         <span class="description"
                         >ubrania, które nadają się do ponownego użycia</span
@@ -118,11 +114,7 @@
 
                 <div class="form-group form-group--checkbox">
                     <label>
-                        <form:radiobutton
-                                path="type"
-                                name="products[]"
-                                value="clothes-useless"
-                        />
+                        <form:radiobutton path="type" name="products[]" value="clothes-useless"/>
                         <span class="checkbox"></span>
                         <span class="description">ubrania, do wyrzucenia</span>
                     </label>
@@ -191,47 +183,47 @@
                 <div class="form-section">
                     <h4>Komu chcesz pomóc?</h4>
                     <div class="form-section--checkboxes">
-                        <div class="form-group form-group--checkbox">
-                            <label>
-                                <form:checkbox path="donationReciver" name="help[]" value="children" />
-                                <span class="checkbox">dzieciom</span>
-                            </label>
-                        </div>
+<%--                        <div class="form-group form-group--checkbox">--%>
+<%--                            <label>--%>
+<%--                                <input type="checkbox" name="help[]" value="children" />--%>
+<%--                                <span class="checkbox">dzieciom</span>--%>
+<%--                            </label>--%>
+<%--                        </div>--%>
 
-                        <div class="form-group form-group--checkbox">
-                            <label>
-                                <form:checkbox path="donationReciver"  name="help[]" value="mothers" />
-                                <span class="checkbox">samotnym matkom</span>
-                            </label>
-                        </div>
+<%--                        <div class="form-group form-group--checkbox">--%>
+<%--                            <label>--%>
+<%--                                <input type="checkbox" name="help[]" value="mothers" />--%>
+<%--                                <span class="checkbox">samotnym matkom</span>--%>
+<%--                            </label>--%>
+<%--                        </div>--%>
 
-                        <div class="form-group form-group--checkbox">
-                            <label>
-                                <form:checkbox path="donationReciver" name="help[]" value="homeless" />
-                                <span class="checkbox">bezdomnym</span>
-                            </label>
-                        </div>
+<%--                        <div class="form-group form-group--checkbox">--%>
+<%--                            <label>--%>
+<%--                                <input type="checkbox" name="help[]" value="homeless" />--%>
+<%--                                <span class="checkbox">bezdomnym</span>--%>
+<%--                            </label>--%>
+<%--                        </div>--%>
 
-                        <div class="form-group form-group--checkbox">
-                            <label>
-                                <form:checkbox path="donationReciver" name="help[]" value="disabled" />
-                                <span class="checkbox">niepełnosprawnym</span>
-                            </label>
-                        </div>
+<%--                        <div class="form-group form-group--checkbox">--%>
+<%--                            <label>--%>
+<%--                                <input type="checkbox" name="help[]" value="disabled" />--%>
+<%--                                <span class="checkbox">niepełnosprawnym</span>--%>
+<%--                            </label>--%>
+<%--                        </div>--%>
 
-                        <div class="form-group form-group--checkbox">
-                            <label>
-                                <form:checkbox path="donationReciver" name="help[]" value="old" />
-                                <span class="checkbox">osobom starszym</span>
-                            </label>
-                        </div>
+<%--                        <div class="form-group form-group--checkbox">--%>
+<%--                            <label>--%>
+<%--                                <input type="checkbox" name="help[]" value="old" />--%>
+<%--                                <span class="checkbox">osobom starszym</span>--%>
+<%--                            </label>--%>
+<%--                        </div>--%>
                     </div>
                 </div>
 
                 <div class="form-section">
                     <h4>Wpisz nazwę konkretnej organizacji (opcjonalnie)</h4>
                     <div class="form-group">
-                        <form:textarea path="donationReciver" rows="4" name="organization_search"></form:textarea>
+                        <form:textarea path="donationReciver" rows="4" name="organization_search"/>
                     </div>
                 </div>
 
@@ -247,7 +239,7 @@
 
                 <div class="form-group form-group--checkbox">
                     <label>
-                        <form:radiobutton path="company" name="organization" value="old" />
+                        <form:radiobutton path="organization" name="organization" value="homeless" />
                         <span class="checkbox radio"></span>
                         <span class="description">
                   <div class="title">Fundacja “Bez domu”</div>
@@ -261,7 +253,7 @@
 
                 <div class="form-group form-group--checkbox">
                     <label>
-                        <form:radiobutton path="company" name="organization" value="old" />
+                        <form:radiobutton path="organization" name="organization" value="workless" />
                         <span class="checkbox radio"></span>
                         <span class="description">
                   <div class="title">Fundacja “Dla dzieci"</div>
@@ -296,13 +288,13 @@
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <form:input path="pickUpZIP" type="text" name="postcode" />
+                                Kod pocztowy <form:input path="pickUpZIP" name="postcode" />
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <form:input path="pickUpPhoneNumber" type="phone" name="phone" />
+                                Numer telefonu <form:input path="pickUpPhoneNumber" name="phone" />
                             </label>
                         </div>
                     </div>
@@ -320,7 +312,7 @@
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <form:textarea path="pickUpObjectives" name="more_info" rows="5"></form:textarea>
+                                <form:textarea path="pickUpObjectives" name="more_info" rows="5"/>
                             </label>
                         </div>
                     </div>
@@ -342,7 +334,7 @@
                             <li>
                                 <span class="icon icon-bag"></span>
                                 <span class="summary--text"
-                                >${donation.numberOfBags} worki ${donation.type} dla ${donation.donationReciver}</span
+                                >4 worki ubrań w dobrym stanie dla dzieci</span
                                 >
                             </li>
 
@@ -359,19 +351,19 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li>${donation.pickUpStreet}</li>
-                                <li>${donation.pickUpCity}</li>
-                                <li>${donation.pickUpZIP}</li>
-                                <li>${donation.pickUpPhoneNumber}</li>
+                                <li>Prosta 51</li>
+                                <li>Warszawa</li>
+                                <li>99-098</li>
+                                <li>123 456 789</li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>${donation.pickUpDate}</li>
-                                <li>${donation.pickUpHour}</li>
-                                <li>${donation.pickUpObjectives}</li>
+                                <li>13/12/2018</li>
+                                <li>15:40</li>
+                                <li>Brak uwag</li>
                             </ul>
                         </div>
                     </div>
@@ -379,9 +371,10 @@
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
-                    <form:button type="submit" class="btn">Potwierdzam</form:button>
+                    <button type="submit" class="btn">Potwierdzam</button>
                 </div>
             </div>
+
             <!-- STEP 7 -->
             <div data-step="7">
                 <h2>
@@ -390,6 +383,8 @@
                 </h2>
             </div>
         </form:form>
+
+
     </div>
 </section>
 

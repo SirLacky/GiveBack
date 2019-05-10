@@ -195,6 +195,7 @@ document.addEventListener("DOMContentLoaded", function() {
       // Next step
       this.$next.forEach(btn => {
         btn.addEventListener("click", e => {
+          console.log("Show next page");
           e.preventDefault();
           this.currentStep++;
           this.updateForm();
@@ -204,6 +205,7 @@ document.addEventListener("DOMContentLoaded", function() {
       // Previous step
       this.$prev.forEach(btn => {
         btn.addEventListener("click", e => {
+          console.log("Show next page");
           e.preventDefault();
           this.currentStep--;
           this.updateForm();
@@ -211,7 +213,9 @@ document.addEventListener("DOMContentLoaded", function() {
       });
 
       // Form submit
-      this.$form.querySelector("form").addEventListener("submit", e => this.submit(e));
+      this.$form.querySelector("form").addEventListener("submit", e =>
+      {console.log("submit tutaj");
+          document.getElementById('formularz').submit()});
     }
 
     /**
