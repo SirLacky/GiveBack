@@ -2,6 +2,7 @@ package com.github.sirlacky.GiveBack.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -10,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.sql.DataSource;
 
 @Configuration
+@EnableGlobalMethodSecurity(securedEnabled = true) //admotacja pozwalajaca dodawac całe kontrolery dla poszczególnych ról
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     private DataSource dataSource;
@@ -34,6 +36,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .usersByUsernameQuery("SELECT username, password, true FROM users WHERE username = ?")
                 //Do szukania roli uzytkownika: SELECT username, role_name FROM users_roles WHERE username = ?
                 .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM users WHERE username = ?");
+//                //dodanie użytkownika do celów developerskich
+//                .withUser("admin").password(passwordEncoder().encode("admin"))
+//                .roles("ADMIN", "USER");
 
     }
 
