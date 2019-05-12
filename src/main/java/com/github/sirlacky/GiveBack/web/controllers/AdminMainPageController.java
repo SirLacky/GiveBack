@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class AdminMainPageController {
 
 
-    @ResponseBody
+    @GetMapping
     public String prepareAdminMainPage(){
-        return "Witaj administratorze";
+        return "/adminMainPage";
     }
 }

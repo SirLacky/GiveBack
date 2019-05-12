@@ -13,7 +13,20 @@
 <p>Posiada role: <span sec:authentication="authorities"></span></p>
 </p>
 <p sec:authorize-url="/admin/">
-    Witaj na stronie Administracyjnej
+
+<form action="/admin/adminAdministration">
+    <input type="submit" value="Zarządzanie Administratorami" />
+</form>
+
+<form action="/admin/userAdministration">
+    <input type="submit" value="Zarządzanie Użytkownikami" />
+</form>
+
+<form action="/admin/organizationsAdministration">
+    <input type="submit" value="Zarządzanie Zaufanymi Instytucjami" />
+</form>
+
+
 </p>
 
 </body>
