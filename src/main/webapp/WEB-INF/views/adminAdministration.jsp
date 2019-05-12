@@ -2,22 +2,25 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<html>
+
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <title>Admin CRUD</title>
 </head>
 <body>
 
+<p sec:authorize-url="/admin/">
+
 <c:forEach items="${userslist}" var="users">
     Uzytkownik: <c:out value="${users.username}"/> <br>
-    Imie: <c:out value="${users.firstName}"/> <br>
-    Nazwisko: <c:out value="${users.lastName}"/><br>
-    Uprawnienia administratora (1=N,2=T): <c:out value="${users.role}"/><br>
-    <a href="/user/delete?id=${users.id}">USUŃ</a>
-    <a href="/user/edit?id=${users.id}">EDYTUJ</a>
+    Uprawnienia administratora: <c:out value="${users.roles}"/><br>
+    <a href="/admin/administration/edit?id=${users.id}">EDYTUJ</a>
     <hr>
 </c:forEach>
+
+</p>
 <br>
 <a href="/logout">Wyloguj</a>
+
 </body>
 </html>
