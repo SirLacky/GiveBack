@@ -4,17 +4,18 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Nadawanie uprawnień administratora</title>
+    <title>Dodaj Zaufana Instytucje</title>
 </head>
 <body>
-<form:form method="post" modelAttribute="user">
-<form:errors path="*"/><br>
-    Uzytkownik: <form:input path="username"/> <br>
-    Uprawnienia administratora: <form:input path="roles"/> <br>
-    <button>Zmień</button>
+
+<form:form method="post" modelAttribute="company">
+    Nazwa Organizacji: <form:input path="name"/>  <br>
+    Adres: <form:input path="adress"/><br>
+    <button type="submit">DODAJ!</button>
 </form:form>
+<hr>
 <form action="/admin">
-    <input type="submit" value="Powrót" />
+    <input type="submit" value="Anuluj" />
 </form>
 </body>
 </html>

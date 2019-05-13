@@ -7,7 +7,7 @@
     <title>Change User</title>
 </head>
 <body>
-
+<h1> Edycja Użytkownika</h1>
 <form:form modelAttribute="user" method="post">
     <form:errors path="*"/><br>
     <div class="form-group">
@@ -22,7 +22,10 @@
     <div>
     <button>ZAPISZ</button>
     </div>
-</form:form>
+</form:form><br>
+<form action="/admin">
+    <input type="submit" value="Powrót" />
+</form>
 
 </body>
 </html>

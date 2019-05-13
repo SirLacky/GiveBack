@@ -10,7 +10,7 @@
 <body>
 
 <%--<p sec:authorize-url="/admin/">--%>
-
+<h1> Zarządzanie Użytownikami</h1><br>
     <c:forEach items="${userslist}" var="users">
     Uzytkownik: <c:out value="${users.username}"/> <br>
     Hasło: <c:out value="${users.password}"/> <br>
@@ -24,7 +24,9 @@
 
 </p>
 <br>
-<a href="/logout">Wyloguj</a>
+<form action="/admin">
+    <input type="submit" value="Powrót" />
+</form>
 
 </body>
 </html>

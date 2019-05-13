@@ -13,7 +13,7 @@
 <%--<p>Posiada role: <span sec:authentication="authorities"></span></p>--%>
 <%--</p>--%>
 <%--<p sec:authorize-url="/admin/">--%>
-
+<h1> Witaj na stronie Administracyjnej</h1><br>
 <form action="/admin/adminAdministration">
     <input type="submit" value="Zarządzanie Administratorami" />
 </form>
@@ -22,11 +22,13 @@
     <input type="submit" value="Zarządzanie Użytkownikami" />
 </form>
 
-<form action="/admin/organizationsAdministration">
+<form action="/admin/organizationAdministration">
     <input type="submit" value="Zarządzanie Zaufanymi Instytucjami" />
 </form>
 
-
+<form action="/logout">
+    <input type="submit" value="Wyloguj" />
+</form>
 </p>
 
 </body>
