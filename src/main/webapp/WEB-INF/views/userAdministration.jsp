@@ -5,7 +5,7 @@
 
 <html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-    <title>Admin CRUD</title>
+    <title>User CRUD</title>
 </head>
 <body>
 
@@ -13,8 +13,12 @@
 
     <c:forEach items="${userslist}" var="users">
     Uzytkownik: <c:out value="${users.username}"/> <br>
-    Uprawnienia administratora: <c:out value="${users.roles}"/><br>
-    <a href="/admin/administration/edit?id=${users.id}">EDYTUJ</a>
+    Hasło: <c:out value="${users.password}"/> <br>
+    Imię: <c:out value="${users.firstName}"/> <br>
+    Nazwisko: <c:out value="${users.lastName}"/> <br>
+    Aktywność tutaj dodać:<br>
+    <a href="/admin/userAdministration/edit?id=${users.id}">EDYTUJ</a>
+    <a href="/admin/userAdministration/admin/userAdministration/delete?id=${users.id}">USUŃ</a>
 <hr>
 </c:forEach>
 

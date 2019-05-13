@@ -8,11 +8,11 @@
     <title>Strona Administracyjna</title>
 </head>
 <body>
-<p sec:authorize="isAuthenticated()">
-<p>Zalogowany jako: <span sec:authentication="name"></span></p>
-<p>Posiada role: <span sec:authentication="authorities"></span></p>
-</p>
-<p sec:authorize-url="/admin/">
+<%--<p sec:authorize="isAuthenticated()">--%>
+<%--<p>Zalogowany jako: <span sec:authentication="name"></span></p>--%>
+<%--<p>Posiada role: <span sec:authentication="authorities"></span></p>--%>
+<%--</p>--%>
+<%--<p sec:authorize-url="/admin/">--%>
 
 <form action="/admin/adminAdministration">
     <input type="submit" value="Zarządzanie Administratorami" />
