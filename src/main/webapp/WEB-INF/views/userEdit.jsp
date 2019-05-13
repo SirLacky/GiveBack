@@ -11,6 +11,9 @@
 <form:form modelAttribute="user" method="post">
     <form:errors path="*"/><br>
     <div class="form-group">
+        <form:hidden path="id"/>
+    </div>
+    <div class="form-group">
         <form:input path="username"/>
     </div>
     <div class="form-group">

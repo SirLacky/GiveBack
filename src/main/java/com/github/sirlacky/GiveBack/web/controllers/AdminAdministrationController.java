@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/admin/adminAdministration")
@@ -19,6 +20,8 @@ public class AdminAdministrationController {
 
     @Autowired
     UserRepository userRepository;
+
+    Logger logger = Logger.getLogger(getClass().getName());
 
     @ModelAttribute("userslist")
     public List<User> userList() {
@@ -30,19 +33,20 @@ public class AdminAdministrationController {
         return "adminAdministration";
     }
 
-    @GetMapping("/admin/administration/edit")
+    @GetMapping("/edit")
     public String editUser(@RequestParam Long id, Model model){
         User user = userRepository.findOne(id);
         model.addAttribute("user", user);
         return "addAdmin";
     }
 
-    @PostMapping("/admin/administration/edit")
+    @PostMapping("/edit")
     public String edited(@Valid @ModelAttribute User user, BindingResult result){
         if(result.hasErrors()){
             return "addAdmin";
         }
         userRepository.save(user);
+        logger.info("Zedytowano uprawnienia użytkownika: "+user.getUsername());
         return "redirect:/admin/adminAdministration";
     }
 
