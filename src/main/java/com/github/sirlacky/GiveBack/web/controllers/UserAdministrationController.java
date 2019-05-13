@@ -48,7 +48,6 @@ public class UserAdministrationController {
         return "redirect:/admin/userAdministration";
     }
 
-    //USUWANIE
     @GetMapping("/admin/userAdministration/delete")
     public String deleteUser(@RequestParam Long id) {
         User user = userRepository.findOne(id);

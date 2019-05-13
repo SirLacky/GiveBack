@@ -22,7 +22,7 @@
 <hr>
 </c:forEach>
 
-</p>
+
 <br>
 <form action="/admin">
     <input type="submit" value="Powrót" />
