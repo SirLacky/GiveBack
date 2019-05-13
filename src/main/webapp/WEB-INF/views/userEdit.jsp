@@ -11,13 +11,16 @@
 <form:form modelAttribute="user" method="post">
     <form:errors path="*"/><br>
     <div class="form-group">
-        <form:input path="username" type="email" name="email" placeholder="Email" />
+        <form:input path="username"/>
     </div>
     <div class="form-group">
-        <form:input path="firstName" type="text" name="imie" placeholder="imie" />
+        <form:hidden path="password"/>
     </div>
     <div class="form-group">
-        <form:input path="lastName" type="text" name="nazwisko" placeholder="nazwisko" />
+        <form:input path="firstName"/>
+    </div>
+    <div class="form-group">
+        <form:input path="lastName"/>
     </div>
     <div>
     <button>ZAPISZ</button>

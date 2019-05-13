@@ -18,7 +18,7 @@
     Nazwisko: <c:out value="${users.lastName}"/> <br>
     Aktywność tutaj dodać:<br>
     <a href="/admin/userAdministration/edit?id=${users.id}">EDYTUJ</a>
-    <a href="/admin/userAdministration/admin/userAdministration/delete?id=${users.id}">USUŃ</a>
+    <a href="/admin/userAdministration/delete?id=${users.id}">USUŃ</a>
 <hr>
 </c:forEach>
 

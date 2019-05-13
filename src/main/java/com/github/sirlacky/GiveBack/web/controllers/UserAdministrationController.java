@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/admin/userAdministration")
@@ -20,6 +21,8 @@ public class UserAdministrationController {
 
     @Autowired
     UserRepository userRepository;
+
+    Logger logger = Logger.getLogger(getClass().getName());
 
     @ModelAttribute("userslist")
     public List<User> userList() {
@@ -32,26 +35,28 @@ public class UserAdministrationController {
     }
 
 
-    @GetMapping("/admin/userAdministration/edit")
+    @GetMapping("/edit")
     public String sendUserIdToEdit(@RequestParam Long id, Model model) {
         User user = userRepository.findOne(id);
         model.addAttribute("user", user);
         return "userEdit";
     }
 
-    @PostMapping("/admin/userAdministration/edit")
+    @PostMapping("/edit")
     public String editCorespondingUser(@Valid @ModelAttribute User user, BindingResult result) {
         if (result.hasErrors()) {
             return "userEdit";
         }
         userRepository.save(user);
+        logger.info("Przeprowadzono edycję użytkownika: "+user.getUsername());
         return "redirect:/admin/userAdministration";
     }
 
-    @GetMapping("/admin/userAdministration/delete")
+    @GetMapping("/delete")
     public String deleteUser(@RequestParam Long id) {
         User user = userRepository.findOne(id);
         userRepository.delete(user);
+        logger.info("Usunięto użytkownika: "+user.getUsername());
         return "redirect:/admin/userAdministration";
     }
 }
