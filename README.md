@@ -17,19 +17,20 @@ WebApp where you can donate your clothes or other stuff to non profit organizati
 
 ##Functionality:
 
+ ![Screenshot](lib/3.jpg)
  - Registration and login forms,
  - Separate dashboard for user and administrator (work in progress)
  - Donation form including which organization to donate.
  
  ![Screenshot](lib/2.jpg)
- ![Screenshot](lib/3.jpg)
+
  
  ## Upgrade plans:
  
   - Add e-mail notifications with informations about date and time of pick up donation,
   - Create better front-end for administrator dashboard.
   
-  ## Data Base structure (probably not final)
-  
+  ## Data Base structure 
+  (probably not final)
   ![Screenshot](lib/4.jpg)
  
