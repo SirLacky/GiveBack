@@ -1,7 +1,7 @@
 # GiveBack
 WebApp where you can donate your clothes or other stuff to non profit organizations.
 
-![Screenshot] (lib/1.jpg)
+![Screenshot](lib/1.jpg)
 
 ##Used Technologies:
 
@@ -21,8 +21,8 @@ WebApp where you can donate your clothes or other stuff to non profit organizati
  - Separate dashboard for user and administrator (work in progress)
  - Donation form including which organization to donate.
  
- ![Screenshot] (lib/2.jpg)
- ![Screenshot] (lib/3.jpg)
+ ![Screenshot](lib/2.jpg)
+ ![Screenshot](lib/3.jpg)
  
  ## Upgrade plans:
  
@@ -31,5 +31,5 @@ WebApp where you can donate your clothes or other stuff to non profit organizati
   
   ## Data Base structure (probably not final)
   
-  ![Screenshot] (lib/4.jpg)
+  ![Screenshot](lib/4.jpg)
  
