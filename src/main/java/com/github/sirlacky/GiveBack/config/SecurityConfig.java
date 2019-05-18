@@ -45,32 +45,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/media/**").permitAll()
-                .antMatchers("/registration").permitAll()
-                .antMatchers("/homepage").permitAll()
-                .antMatchers("/author").permitAll()
-                .antMatchers("/").permitAll()
-                .antMatchers("/login").anonymous()
-                .antMatchers("/user", "/user/**").hasRole("USER")
-                .antMatchers("/admin", "/admin/**").permitAll()
-                .anyRequest().authenticated() // any request authenticated dajemy na ostatnim miejscu ZAWSZE!
-                .and()
+                    .antMatchers("/media/**").permitAll()
+                    .antMatchers("/registration").permitAll()
+                    .antMatchers("/homepage").permitAll()
+                    .antMatchers("/author").permitAll()
+                    .antMatchers("/").permitAll()
+                    .antMatchers("/login").anonymous()
+                    .antMatchers("/user", "/user/**").hasRole("USER")
+                    .antMatchers("/admin", "/admin/**").permitAll()
+                    .anyRequest().authenticated() // any request authenticated dajemy na ostatnim miejscu ZAWSZE!
+                    .and()
                 .formLogin()
-                .loginPage("/login")
-                .usernameParameter("username")
-                .passwordParameter("password")
-                .defaultSuccessUrl("/admin")
-                .and()
+                    .loginPage("/login")
+                    .usernameParameter("username")
+                    .passwordParameter("password")
+                    .defaultSuccessUrl("/admin")
+                    .and()
                 .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/landingpage")
-                .and()
+                    .logoutUrl("/logout")
+                    .logoutSuccessUrl("/landingpage")
+                    .and()
                 .csrf()//wylacza potwierdzenie wylogowanie "czy napewno chcesz sie wylogowac"
-                .disable()
+                    .disable()
                 .rememberMe()//remember me pozwala logowac sie uzytkownikomi jesli byl wczesniej zalogowany
-                .key("mójTajnyKluczRememberMe")//haslo do rozszyfrowania ciasteczka
-                .rememberMeParameter("remember-me")//nazwa check boxa "zapamietaj" w formularzu logowania
-                .tokenValiditySeconds(7*24*60*60);//czas zycia rememberme
+                    .key("mójTajnyKluczRememberMe")//haslo do rozszyfrowania ciasteczka
+                    .rememberMeParameter("remember-me")//nazwa check boxa "zapamietaj" w formularzu logowania
+                    .tokenValiditySeconds(7*24*60*60);//czas zycia rememberme
 
 
     }
