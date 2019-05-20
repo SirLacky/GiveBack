@@ -35,7 +35,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 //w ByUserQuery wstawiamy true zeby nie szukal w tabeli w bazie tabeli czy uzytkownik jest aktywny
                 .usersByUsernameQuery("SELECT username, password, true FROM users WHERE username = ?")
                 //Do szukania roli uzytkownika: SELECT username, role_name FROM users_roles WHERE username = ?
-                .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM users WHERE username = ?");
+                .authoritiesByUsernameQuery("SELECT username, role FROM users \n" +
+                        "INNER JOIN user_role ON users.id = user_role.user_id\n" +
+                        "INNER JOIN role ON user_role.role_id = role.role_id\n" +
+                        "WHERE users.username = ?;");
 //                //dodanie użytkownika do celów developerskich
 //                .withUser("admin").password(passwordEncoder().encode("admin"))
 //                .roles("ADMIN", "USER");
@@ -52,14 +55,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                     .antMatchers("/").permitAll()
                     .antMatchers("/login").anonymous()
                     .antMatchers("/user", "/user/**").hasRole("USER")
-                    .antMatchers("/admin", "/admin/**").permitAll()
+                    .antMatchers("/admin", "/admin/**").hasRole("ADMIN")
                     .anyRequest().authenticated() // any request authenticated dajemy na ostatnim miejscu ZAWSZE!
                     .and()
                 .formLogin()
                     .loginPage("/login")
                     .usernameParameter("username")
                     .passwordParameter("password")
-                    .defaultSuccessUrl("/admin")
+                    .defaultSuccessUrl("/usermain")
                     .and()
                 .logout()
                     .logoutUrl("/logout")
