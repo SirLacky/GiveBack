@@ -3,6 +3,7 @@ package com.github.sirlacky.GiveBack.web.controllers;
 import com.github.sirlacky.GiveBack.domain.model.Company;
 import com.github.sirlacky.GiveBack.domain.repositories.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,7 +15,7 @@ import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/admin/organizationAdministration")
-//@Secured("ROLE_ADMIN")
+@Secured("ROLE_ADMIN")
 public class OrganizationsAdministrationController {
 
     @Autowired

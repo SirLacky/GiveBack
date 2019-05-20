@@ -2,6 +2,7 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -15,7 +16,15 @@
 <header class="header--main-page">
     <nav class="container container--70">
         <ul class="nav--actions">
-            <li><a href="/logout" class="btn btn--small btn--highlighted">Wyloguj</a></li>
+            <li>
+                <span sec:authorize access="hasRole('ADMIN')">
+                <a href="/admin" class="btn btn--small btn--highlighted">Panel Administracyjny</a>
+                </span>
+                <a href="/logout" class="btn btn--small btn--highlighted">Wyloguj</a>
+                Zalogowany jako: <span sec:authentication="username"></span>
+                Posiada role: <span sec:authentication="authorities"></span>
+
+            </li>
         </ul>
 
         <ul>

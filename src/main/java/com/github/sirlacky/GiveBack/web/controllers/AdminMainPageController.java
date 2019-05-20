@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/admin")
-//@Secured("ROLE_ADMIN")
+@Secured("ROLE_ADMIN")
 public class AdminMainPageController {
 
 

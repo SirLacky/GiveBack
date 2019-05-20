@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/admin/userAdministration")
-//@Secured("ROLE_ADMIN")
+@Secured("ROLE_ADMIN")
 public class UserAdministrationController {
 
     @Autowired

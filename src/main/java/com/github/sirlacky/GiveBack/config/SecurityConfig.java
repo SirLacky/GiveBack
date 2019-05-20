@@ -54,8 +54,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                     .antMatchers("/author").permitAll()
                     .antMatchers("/").permitAll()
                     .antMatchers("/login").anonymous()
-                    .antMatchers("/user", "/user/**").hasRole("USER")
-                    .antMatchers("/admin", "/admin/**").hasRole("ADMIN")
+                    .antMatchers("/user", "/user/**").hasRole("USER")//do hasRole i hasAnyRole nazwy roli dajemy bez przedrostka "ROLE_"
+                    .antMatchers("/admin", "/admin/**").hasRole("ADMIN")//do hasAuthority i hasAnyAuthority dajemy pełną nazwę "ROLE_USER"
                     .anyRequest().authenticated() // any request authenticated dajemy na ostatnim miejscu ZAWSZE!
                     .and()
                 .formLogin()

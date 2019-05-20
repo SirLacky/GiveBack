@@ -3,16 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html>
 <head>
     <title>Strona Administracyjna</title>
 </head>
 <body>
-<%--<p sec:authorize="isAuthenticated()">--%>
-<%--<p>Zalogowany jako: <span sec:authentication="name"></span></p>--%>
-<%--<p>Posiada role: <span sec:authentication="authorities"></span></p>--%>
-<%--</p>--%>
-<%--<p sec:authorize-url="/admin/">--%>
 <h1> Witaj na stronie Administracyjnej</h1><br>
 <form action="/admin/adminAdministration">
     <input type="submit" value="Zarządzanie Administratorami" />
@@ -24,6 +19,11 @@
 
 <form action="/admin/organizationAdministration">
     <input type="submit" value="Zarządzanie Zaufanymi Instytucjami" />
+</form>
+<br>
+<br>
+<form action="/usermain">
+    <input type="submit" value="Przejdź do serwisu" />
 </form>
 
 <form action="/logout">
