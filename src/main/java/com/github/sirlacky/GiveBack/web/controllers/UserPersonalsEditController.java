@@ -40,20 +40,20 @@ public class UserPersonalsEditController {
         return "userPersonals";
     }
 
-//    @GetMapping
-//    public String sendUserIdToEditPersonals(@RequestParam Long id, Model model) {
-//        User user = userRepository.findOne(id);
-//        model.addAttribute("user", user);
-//        return "userPersonals";
-//    }
-//
-//    @PostMapping("/edit")
-//    public String editCorespondingUserPersonals(@Valid @ModelAttribute User user, BindingResult result) {
-//        if (result.hasErrors()) {
-//            return "userPersonalsEdit";
-//        }
-//        userRepository.save(user);
-//        logger.info("Użytkownik zmienił swoje dane: " + user.getUsername());
-//        return "redirect:/landingpage";
-//    }
+    @GetMapping("/edit")
+    public String sendUserIdToEditPersonals(@RequestParam Long id, Model model) {
+        User user = userRepository.findOne(id);
+        model.addAttribute("user", user);
+        return "userPersonalsEdit";
+    }
+
+    @PostMapping("/edit")
+    public String editCorespondingUserPersonals(@Valid @ModelAttribute User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "userPersonalsEdit";
+        }
+        userRepository.save(user);
+        logger.info("Użytkownik zmienił swoje dane: " + user.getUsername());
+        return "redirect:/";
+    }
 }

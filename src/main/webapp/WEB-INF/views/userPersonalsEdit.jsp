@@ -29,7 +29,7 @@
         <button>ZAPISZ</button>
     </div>
 </form:form><br>
-<form action="/landingpage">
+<form action="/profile">
     <input type="submit" value="Powrót" />
 </form>
 
