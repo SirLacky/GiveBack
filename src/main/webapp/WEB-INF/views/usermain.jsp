@@ -19,17 +19,12 @@
             <li class="logged-user">
                 Witaj
                 <ul class="dropdown">
-                    <span sec:authorize access="hasRole('ADMIN')"><a href="/admin" class="btn btn--small btn--highlighted">Panel Administracyjny </a></span>
+                    <sec:authorize access="hasRole('ADMIN')">
+                        <a href="/admin" class="btn btn--small btn--highlighted">Panel Administracyjny </a>
+                    </sec:authorize>
                     <li><a href="/profile">Profil</a></li>
-                    <li><a href="#">Ustawienia</a></li>
                     <li><a href="#">Moje zbiórki</a></li>
                     <li><a href="/logout">Wyloguj</a></li>
-                    <sec:authorize access="hasRole('ADMIN')">
-                        <p>dzien dobry admin</p>
-                    </sec:authorize>
-                    <sec:authorize access="hasRole('USER')">
-                        <p>dzien dobry user</p>
-                    </sec:authorize>
                 </ul>
             </li>
         </ul>
