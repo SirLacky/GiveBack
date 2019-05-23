@@ -2,6 +2,7 @@ package com.github.sirlacky.GiveBack.services;
 
 import com.github.sirlacky.GiveBack.domain.model.User;
 import com.github.sirlacky.GiveBack.domain.repositories.UserRepository;
+import com.github.sirlacky.GiveBack.dtos.EditUserFormDTO;
 import com.github.sirlacky.GiveBack.dtos.RegistrationFormDTO;
 import com.github.sirlacky.GiveBack.dtos.UserDTO;
 import org.slf4j.Logger;
@@ -12,8 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
-import static com.github.sirlacky.GiveBack.services.Converters.convertToUser;
-import static com.github.sirlacky.GiveBack.services.Converters.convertToUserDTO;
+import static com.github.sirlacky.GiveBack.services.Converters.*;
 
 @Service
 public class UserService {
@@ -41,6 +41,13 @@ public class UserService {
         logger.info("Zarejestrowano uzytkownika: " + user);
     }
 
+    @Transactional
+    public void editUser(EditUserFormDTO form) {
+        User user = convertToEditedUser(form);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+        logger.info("Edycja użytkownika zakończona powodzeniem: "+user.getUsername());
+    }
 
     public UserDTO findUser(String username) {
         if (username == null) {

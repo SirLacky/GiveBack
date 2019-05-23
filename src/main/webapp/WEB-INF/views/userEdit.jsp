@@ -17,7 +17,7 @@
         <form:input path="username"/>
     </div>
     <div class="form-group">
-        <form:hidden path="password"/>
+        <form:password path="password"/>
     </div>
     <div class="form-group">
         <form:input path="firstName"/>

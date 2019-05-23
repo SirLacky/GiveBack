@@ -3,6 +3,8 @@ package com.github.sirlacky.GiveBack.web.controllers;
 
 import com.github.sirlacky.GiveBack.domain.model.User;
 import com.github.sirlacky.GiveBack.domain.repositories.UserRepository;
+import com.github.sirlacky.GiveBack.dtos.EditUserFormDTO;
+import com.github.sirlacky.GiveBack.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,11 @@ public class UserAdministrationController {
 
     @Autowired
     UserRepository userRepository;
+    UserService userService;
+
+    public UserAdministrationController(UserService userService) {
+        this.userService = userService;
+    }
 
     Logger logger = Logger.getLogger(getClass().getName());
 
@@ -43,12 +50,12 @@ public class UserAdministrationController {
     }
 
     @PostMapping("/edit")
-    public String editCorespondingUser(@Valid @ModelAttribute User user, BindingResult result) {
+    public String editCorespondingUser(@Valid @ModelAttribute EditUserFormDTO form, BindingResult result) {
         if (result.hasErrors()) {
             return "userEdit";
         }
-        userRepository.save(user);
-        logger.info("Przeprowadzono edycję użytkownika: "+user.getUsername());
+        userService.editUser(form);
+        logger.info("Przeprowadzono edycję użytkownika: "+form.getLastName());
         return "redirect:/admin/userAdministration";
     }
 
