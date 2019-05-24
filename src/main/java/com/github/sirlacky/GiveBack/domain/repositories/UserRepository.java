@@ -19,4 +19,6 @@ public interface UserRepository extends JpaRepository<User,Long> {
     @Query(value = "SELECT * FROM users JOIN user_role ON users.id=user_role.user_id WHERE role_id = 1;", nativeQuery = true)
     List<User> findAllUsers();
 
+    @Query(value ="INSERT INTO `give_back`.`user_role` (`user_id`) VALUES (?);" ,nativeQuery = true)
+    User giveUserRole(Long id);
 }

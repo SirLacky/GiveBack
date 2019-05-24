@@ -66,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                     .and()
                 .logout()
                     .logoutUrl("/logout")
-//                    .logoutSuccessUrl("/tomaszchocina")
+//                    .logoutSuccessUrl("/logout")
                     .and()
                 .csrf()//wylacza potwierdzenie wylogowanie "czy napewno chcesz sie wylogowac"
                     .disable()

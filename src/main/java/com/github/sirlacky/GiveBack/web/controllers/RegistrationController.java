@@ -1,5 +1,7 @@
 package com.github.sirlacky.GiveBack.web.controllers;
 
+import com.github.sirlacky.GiveBack.domain.model.User;
+import com.github.sirlacky.GiveBack.domain.repositories.UserRepository;
 import com.github.sirlacky.GiveBack.dtos.RegistrationFormDTO;
 import com.github.sirlacky.GiveBack.dtos.UserDTO;
 import com.github.sirlacky.GiveBack.services.UserService;
@@ -13,13 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
+import static com.github.sirlacky.GiveBack.services.Converters.convertToUser;
+
 @Controller
 @RequestMapping("/registration")
 public class RegistrationController {
 
 
     private UserService userService;
-
+    private UserRepository userRepository;
     public RegistrationController(UserService userService) {
         this.userService = userService;
     }
@@ -39,13 +43,13 @@ public class RegistrationController {
             result.rejectValue("password", null, "Hasło powtórzone jest niezgodne");
             return "registration";
         }
-
         if (!checkIsUsernameAvalible(form)) {
             result.rejectValue("username", null, "Nazwa użytkownika jest już zajęta");
             return "registration";
         }
+
         userService.registerUser(form);
-        return "redirect:/landingpage";
+        return "redirect:/login";
     }
 
     private boolean checkIsUsernameAvalible(RegistrationFormDTO form) {

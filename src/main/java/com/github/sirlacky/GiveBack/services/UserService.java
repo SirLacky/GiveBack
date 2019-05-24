@@ -1,6 +1,8 @@
 package com.github.sirlacky.GiveBack.services;
 
+import com.github.sirlacky.GiveBack.domain.model.Role;
 import com.github.sirlacky.GiveBack.domain.model.User;
+import com.github.sirlacky.GiveBack.domain.repositories.RoleRepository;
 import com.github.sirlacky.GiveBack.domain.repositories.UserRepository;
 import com.github.sirlacky.GiveBack.dtos.EditUserFormDTO;
 import com.github.sirlacky.GiveBack.dtos.RegistrationFormDTO;
@@ -22,11 +24,13 @@ public class UserService {
 
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
+    private RoleRepository roleRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.roleRepository = roleRepository;
     }
 
 
@@ -37,7 +41,7 @@ public class UserService {
 
         logger.info("Rejestracja uzytkownika: " + user);
         userRepository.save(user);
-
+        user.getRoles().add(roleRepository.findById(1L));
         logger.info("Zarejestrowano uzytkownika: " + user);
     }
 

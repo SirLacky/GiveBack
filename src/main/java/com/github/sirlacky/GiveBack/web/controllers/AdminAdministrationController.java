@@ -35,7 +35,7 @@ public class AdminAdministrationController {
 
     @GetMapping("/edit")
     public String editUser(@RequestParam Long id, Model model){
-        User user = userRepository.findOne(id);
+        User user = userRepository.giveUserRole(id);
         model.addAttribute("user", user);
         return "addAdmin";
     }
