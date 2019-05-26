@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder())
                 //w ByUserQuery wstawiamy true zeby nie szukal w tabeli w bazie tabeli czy uzytkownik jest aktywny
-                .usersByUsernameQuery("SELECT username, password, true FROM users WHERE username = ?")
+                .usersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username = ?")
                 //Do szukania roli uzytkownika: SELECT username, role_name FROM users_roles WHERE username = ?
                 .authoritiesByUsernameQuery("SELECT username, role FROM users \n" +
                         "INNER JOIN user_role ON users.id = user_role.user_id\n" +

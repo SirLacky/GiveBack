@@ -25,7 +25,10 @@ public class User {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
+    @Column (name = "enabled")
+    private Boolean enabled = true;
 
+    @Transient
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))

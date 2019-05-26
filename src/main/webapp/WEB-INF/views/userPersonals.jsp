@@ -14,5 +14,9 @@
     Nazwisko: ${loggedUser.lastName} <br>
 </h2>
     <a href="/profile/edit?id=${loggedUser.id}">EDYTUJ DANE PERSONALNE</a>
+<br>
+<form action="/usermain">
+    <input type="submit" value="Powrót" />
+</form>
 </body>
 </html>

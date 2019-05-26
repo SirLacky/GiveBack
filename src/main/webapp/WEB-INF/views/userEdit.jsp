@@ -2,6 +2,7 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <title>Change User</title>
@@ -14,17 +15,25 @@
         <form:hidden path="id"/>
     </div>
     <div class="form-group">
-        <form:input path="username"/>
+        Mail: <form:input path="username"/>
     </div>
     <div class="form-group">
-        <form:password path="password"/>
+        Hasło: <form:password path="password"/>
     </div>
     <div class="form-group">
-        <form:input path="firstName"/>
+        Imię: <form:input path="firstName"/>
     </div>
     <div class="form-group">
-        <form:input path="lastName"/>
+        Nazwisko: <form:input path="lastName"/>
     </div>
+    <sec:authorize access="hasRole('ADMIN')">
+    <div class="form-group">
+        Dopuszczony:
+        <form:radiobutton path="enabled" value="true"/>True
+        <form:radiobutton path="enabled" value="false"/>False
+    </div>
+    </sec:authorize>
+
     <div>
     <button>ZAPISZ</button>
     </div>
