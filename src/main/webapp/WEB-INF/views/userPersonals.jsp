@@ -8,6 +8,7 @@
 </head>
 <body>
 <h2>
+    IdUżytkownika: ${loggedUser.id} <br>
     Użytkownik: ${loggedUser.username} <br>
     Hasło: ***** <br>
     Imię: ${loggedUser.firstName} <br>

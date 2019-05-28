@@ -2,6 +2,8 @@ package com.github.sirlacky.GiveBack.web.controllers;
 
 import com.github.sirlacky.GiveBack.domain.model.User;
 import com.github.sirlacky.GiveBack.domain.repositories.UserRepository;
+import com.github.sirlacky.GiveBack.dtos.EditUserFormDTO;
+import com.github.sirlacky.GiveBack.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,6 +25,12 @@ public class UserPersonalsEditController {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    UserService userService;
+
+    public UserPersonalsEditController(UserService userService) {
+        this.userService = userService;
+    }
 
     Logger logger = Logger.getLogger(getClass().getName());
 
@@ -48,12 +56,12 @@ public class UserPersonalsEditController {
     }
 
     @PostMapping("/edit")
-    public String editCorespondingUserPersonals(@Valid @ModelAttribute User user, BindingResult result) {
+    public String editCorespondingUserPersonals(@Valid @ModelAttribute EditUserFormDTO form, BindingResult result) {
         if (result.hasErrors()) {
             return "userPersonalsEdit";
         }
-        userRepository.save(user);
-        logger.info("Użytkownik zmienił swoje dane: " + user.getUsername());
-        return "redirect:/";
+        userService.editUser(form);
+        logger.info("Użytkownik zmienił swoje dane: "+form.getLastName());
+        return "redirect:/usermain";
     }
 }
