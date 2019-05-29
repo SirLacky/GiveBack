@@ -23,7 +23,7 @@
                         <a href="/admin" class="btn btn--small btn--highlighted">Panel Administracyjny </a>
                     </sec:authorize>
                     <li><a href="/profile">Profil</a></li>
-                    <li><a href="#">Moje zbiórki</a></li>
+                    <li><a href="/mydonations">Moje zbiórki</a></li>
                     <li><a href="/logout">Wyloguj</a></li>
                 </ul>
             </li>
