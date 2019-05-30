@@ -24,7 +24,7 @@
     Informacje dodatkowe:<br>
     Liczba worków:<c:out value="${donations.numberOfBags}"/> <br>
     <c:out value="${donations.pickUpObjectives}"/> <br>
-    <a href="#">EDYTUJ</a>
+    <a href="/mydonations/edit?id=${donations.id}">EDYTUJ DANE / ZATWIERDZ ODBIÓR</a>
     <hr>
 </c:forEach>
 

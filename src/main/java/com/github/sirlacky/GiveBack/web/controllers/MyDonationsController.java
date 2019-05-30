@@ -4,15 +4,13 @@ import com.github.sirlacky.GiveBack.domain.model.Donation;
 import com.github.sirlacky.GiveBack.domain.model.User;
 import com.github.sirlacky.GiveBack.domain.repositories.DonationRepository;
 import com.github.sirlacky.GiveBack.domain.repositories.UserRepository;
-import com.github.sirlacky.GiveBack.dtos.EditUserFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -37,7 +35,20 @@ public class MyDonationsController {
     }
     @GetMapping
     String showUserDonationPage(){
-        return "myDonations";
+        return "/myDonations";
+    }
+
+    @GetMapping("/edit")
+    public String prepareSetDonationAsDonePage(@RequestParam Long id, Model model){
+        Donation donation = donationRepository.findOne(id);
+        model.addAttribute("donation", donation);
+        return "/completeDonation";
+    }
+
+    @PostMapping("/edit")
+    String setDonationAsDonePage(@ModelAttribute Donation donation){
+        donationRepository.save(donation);
+        return "redirect:/mydonations";
     }
 
 }

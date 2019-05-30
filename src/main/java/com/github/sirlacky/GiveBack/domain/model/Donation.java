@@ -30,6 +30,8 @@ public class Donation {
     private String pickUpHour;
     private String pickUpObjectives;
     private Boolean done = false;
+
+
     @ManyToOne
     private User users;
     @ManyToOne
