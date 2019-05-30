@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Table(name = "donation")
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Donation {

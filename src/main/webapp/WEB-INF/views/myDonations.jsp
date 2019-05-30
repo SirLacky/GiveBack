@@ -8,14 +8,25 @@
 </head>
 <body>
 <h1>Moje zbiórki:</h1>
+<hr>
 
 <c:forEach items="${userDonations}" var="donations">
     Nazwa: <c:out value="${donations.name}"/> <br>
+    Data odbioru:<br>
+    <c:out value="${donations.pickUpDate}"/>
+    <c:out value="${donations.pickUpHour}"/> <br>
+    <b>Zakończona?</b> <c:out value="${donations.done}"/> <br>
+    Adres odbioru: <br>
+    <c:out value="${donations.pickUpCity}"/>
+    <c:out value="${donations.pickUpStreet}"/>
+    <c:out value="${donations.pickUpZIP}"/>
+    <c:out value="${donations.pickUpPhoneNumber}"/> <br>
+    Informacje dodatkowe:<br>
+    Liczba worków:<c:out value="${donations.numberOfBags}"/> <br>
+    <c:out value="${donations.pickUpObjectives}"/> <br>
     <a href="#">EDYTUJ</a>
     <hr>
 </c:forEach>
-
-    <hr>
 
 </body>
 </html>

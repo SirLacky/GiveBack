@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/mydonations")
@@ -25,11 +26,14 @@ public class MyDonationsController {
     @Autowired
     DonationRepository donationRepository;
 
+    Logger logger = Logger.getLogger(getClass().getName());
+
     @ModelAttribute("userDonations")
-    public Donation getUserDonations() {
+    public List<Donation> getUserDonations() {
         String name = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.getByUsername(name);
-        return userRepository.showUserDonationsById(user.getId());
+        logger.info(user.getUsername()+" pobiera listę swoich donacji");
+        return user.getDonations();
     }
     @GetMapping
     String showUserDonationPage(){
