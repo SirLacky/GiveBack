@@ -13,7 +13,7 @@
     <c:forEach items="${userslist}" var="users">
     Uzytkownik: <c:out value="${users.username}"/> <br>
     Rola użytkownika: <c:out value="${users.roles}"/><br>
-    <a href="/admin/administration/edit?id=${users.id}">EDYTUJ</a>
+    <a href="/admin/adminAdministration/edit?id=${users.id}">EDYTUJ</a>
 <hr>
 </c:forEach>
 

@@ -35,15 +35,15 @@ public class AdminAdministrationController {
 
     @GetMapping("/edit")
     public String editUser(@RequestParam Long id, Model model){
-        User user = userRepository.giveUserRole(id);
+        User user = userRepository.findOne(id);
         model.addAttribute("user", user);
-        return "addAdmin";
+        return "/addAdmin";
     }
 
     @PostMapping("/edit")
     public String edited(@Valid @ModelAttribute User user, BindingResult result){
         if(result.hasErrors()){
-            return "addAdmin";
+            return "/addAdmin";
         }
         userRepository.save(user);
         logger.info("Zedytowano uprawnienia użytkownika: "+user.getUsername());
